@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import pollsRoute from './poll.js'
+import pollsRoute from './routes/poll.js'
+import fetch from "node-fetch";
 
 const app =express();
 const PORT = 5000;
