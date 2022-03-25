@@ -3,20 +3,32 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beletate/api-nodejs-mssql.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequelize",
+    "mysql",
+    "rest",
+    "api"
+  ],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beletate/api-nodejs-mssql/issues"
+  },
+  "homepage": "https://github.com/beletate/api-nodejs-mssql#readme",
   "dependencies": {
-    "express": "^4.17.2",
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
     "mysql2": "^2.3.3",
-    "node-fetch": "^3.2.1",
-    "nodemon": "^2.0.15",
-    "sequelize": "^6.16.1",
-    "sql": "^0.78.0",
-    "uuid": "^8.3.2"
+    "sequelize": "^6.17.0"
   }
 }
