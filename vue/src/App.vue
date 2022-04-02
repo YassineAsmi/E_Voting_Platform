@@ -605,6 +605,7 @@
      
      
   <form @submit.prevent="authenticate">
+  <div class="form-group"><p style="color: red"> {{errorlogin}}</p></div>
   <div class="form-group">
     <label for="exampleInputEmail1">Enter Your User Name</label>
     <input type="text" class="form-control" v-model="input.username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter UserName">
@@ -637,6 +638,7 @@
       </div>
       <div class="modal-body">
     <form @submit.prevent="signup">
+    <div class="form-group"><p style="color: red"> {{errorsign}}</p></div>
     <div class="form-group">
     <label for="exampleInputEmail1">enter your UserName</label>
     <input type="text" class="form-control" v-model="sign.username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -687,7 +689,9 @@ import {login, signUp} from './util';
                     password: "",
                     username:"",
                     role:""
-                }
+                },
+                errorlogin:'',
+                errorsign:''
             }
         },
         methods: {
@@ -699,12 +703,13 @@ import {login, signUp} from './util';
                        localStorage.setItem("token",res.accessToken);
                        localStorage.setItem("user",res.username);
                        console.log(res)
-                        this.showModal = false
+                       this.showModal = false
                          console.log('succcccccccccccess')
                        // this.$router.push({path: '/home'});
                     })
                     .catch((error) => {
                         console.log(error)
+                        this.errorlogin = error.message
                         //this.$store.commit("loginFailed", {error});
                     });
             
@@ -731,6 +736,7 @@ import {login, signUp} from './util';
                     })
                     .catch((error) => {
                         console.log(error)
+                          this.errorsign = error.message
                         //this.$store.commit("loginFailed", {error});
                     });
             
