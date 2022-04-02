@@ -626,8 +626,8 @@
      
   <form @submit.prevent="authenticate">
   <div class="form-group">
-    <label for="exampleInputEmail1">Enter Your Email address</label>
-    <input type="email" class="form-control" v-model="input.email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <label for="exampleInputEmail1">Enter Your User Name</label>
+    <input type="text" class="form-control" v-model="input.username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter UserName">
     
   </div>
   <div class="form-group">
@@ -694,7 +694,7 @@ import {login} from './util';
             return {
               showModal: true,
                 input: {
-                    email: "",
+                    userName: "",
                     password: ""
                 }
             }
@@ -708,7 +708,8 @@ import {login} from './util';
                        // this.$store.commit("loginSuccess", res);
                        console.log(res)
                          this.showModal = false
-                        this.$router.push({path: '/home'});
+                         console.log('succcccccccccccess')
+                       // this.$router.push({path: '/home'});
                     })
                     .catch((error) => {
                         console.log(error)
