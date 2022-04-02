@@ -186,9 +186,9 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/yassine.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="../src/assets/img/yassine.jpg" alt="">
               <h4>Kay Garland</h4>
               <p class="text-muted">Lead Designer</p>
               <ul class="list-inline social-buttons">
@@ -210,9 +210,9 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="../src/assets/img/khemais.jpg" alt="">
               <h4>Larry Parker</h4>
               <p class="text-muted">Lead Marketer</p>
               <ul class="list-inline social-buttons">
@@ -234,30 +234,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
-              <h4>Diana Pertersen</h4>
-              <p class="text-muted">Lead Developer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+      
         </div>
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
@@ -659,13 +636,12 @@
     <form @submit.prevent="signup">
     <div class="form-group">
     <label for="exampleInputEmail1">enter your UserName</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <input type="text" class="form-control" v-model="sign.username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+ 
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" v-model="sign.email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
@@ -673,7 +649,7 @@
   </div>
    <div class="form-group">
     <label for="exampleInputPassword1">Role</label>
-    <input type="text" class="form-control" v-model="sign.role" id="exampleInputPassword1" placeholder="Password">
+    <input type="text" class="form-control" v-model="sign.role" id="exampleInputPassword1" placeholder="Role">
   </div>
      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -698,7 +674,7 @@ import {login, signUp} from './util';
             return {
               showModal: true,
                 input: {
-                    userName: "",
+                    username: "",
                     password: ""
                 },
                 sign: {
@@ -738,9 +714,8 @@ import {login, signUp} from './util';
             }*/
         },
             signup() {
-            
-              console.log(this.$data.input)
-              signUp(this.$data.signup)
+              console.log(this.$data.sign)
+              signUp(this.$data.sign)
                     .then((res) => {
                        // this.$store.commit("loginSuccess", res);
                        console.log(res)
