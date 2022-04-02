@@ -27,17 +27,17 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
             </li>
-            <li v-if="!localStorage.getItem('accessToken')">
+            <li v-if="!token">
               <button type="button" class="btn btn-primary custom-btn" data-toggle="modal" data-target="#loginModal">
              login
               </button>
             </li>
-            <li v-if="!localStorage.getItem('accessToken')">
+            <li v-if="!token">
               <button type="button" class="btn btn-primary custom-btn" data-toggle="modal" data-target="#signupModal">
              sign up
               </button>
             </li>
-            <li v-if="localStorage.getItem('accessToken')">
+            <li v-if="token">
              <a class="nav-link js-scroll-trigger" href="#">{{localStorage.getItem('userName')}}</a>
             </li>
           </ul>
@@ -675,6 +675,8 @@ import {login, signUp} from './util';
     export default {
         data() {
             return {
+              token : localStorage.getItem('token'),
+              user : localStorage.getItem('user'),
               showModal: true,
                 input: {
                     username: "",
@@ -695,7 +697,7 @@ import {login, signUp} from './util';
               login(this.$data.input)
                     .then((res) => {
                        localStorage.setItem("token",res.accessToken);
-                       localStorage.setItem("token",res.username);
+                       localStorage.setItem("user",res.username);
                        console.log(res)
                         this.showModal = false
                          console.log('succcccccccccccess')
