@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+
+    <div id="app">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -12,10 +13,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+              <a class="nav-link js-scroll-trigger" href="#services"><router-link to="/">Home</router-link></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link js-scroll-trigger" href="#portfolio"><router-link to="/about">Portfolio</router-link></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
@@ -94,8 +95,6 @@
     </section>
 
     <!-- Portfolio Grid -->
-    <Portfolio></Portfolio>
-
     <!-- About -->
     <section id="about">
       <div class="container">
@@ -689,23 +688,6 @@
   
 </template>
 
-<script>
-
-import Portfolio from './components/Portfolio'
-
-export default {
-  name: 'app',
-  components: {
-    Portfolio
-  },
-  methods: {
-  onClick(event){
-   console.log(event.target.value)
-  }  
-  },
-}
-</script>
-
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -722,3 +704,4 @@ body {
  margin-left: 2%;
 }
 </style>
+
