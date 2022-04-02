@@ -718,7 +718,7 @@ import {login, signUp} from './util';
               signUp({email : this.$data.sign.email,username:this.$data.sign.username,password:this.$data.sign.password,role :[this.$data.sign.role]})
                     .then((res) => {
                        // this.$store.commit("loginSuccess", res);
-                       console.log(res)
+                          console.log(res)
                          this.showModal = false
                          console.log('succcccccccccccess')
                        // this.$router.push({path: '/home'});
