@@ -709,7 +709,7 @@ import {login, signUp} from './util';
                     })
                     .catch((error) => {
                         console.log(error)
-                        this.errorlogin = error.message
+                        this.errorlogin = error
                         //this.$store.commit("loginFailed", {error});
                     });
             
@@ -735,8 +735,8 @@ import {login, signUp} from './util';
                        // this.$router.push({path: '/home'});
                     })
                     .catch((error) => {
-                        console.log(error)
-                          this.errorsign = error.message
+                          console.log(error)
+                          this.errorsign = error
                         //this.$store.commit("loginFailed", {error});
                     });
             
