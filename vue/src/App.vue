@@ -5,7 +5,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Title khemais</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Weisevote</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -46,8 +46,8 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-lead-in">Welcome To Our Studio!</div>
-          <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+          <div class="intro-lead-in">Welcome To Our Platform!</div>
+          <div class="intro-heading text-uppercase">It's Nice To make a vote</div>
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
               <button type="button" class="btn btn-primary custom-btn" data-toggle="modal" data-target="#exampleModal">
              Launch demo modal
@@ -181,14 +181,14 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Our  Team</h2>
+           
           </div>
         </div>
         <div class="row">
           <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="img/yassine.jpg" alt="">
               <h4>Kay Garland</h4>
               <p class="text-muted">Lead Designer</p>
               <ul class="list-inline social-buttons">
@@ -599,7 +599,7 @@
       </div>
       <div class="modal-body">
      
-     <div>gggggggggggggggggggggggggggggg</div>
+     <div>type poll content</div>
       <div><input type="radio" name="" id="r1" value="anis" @change="onClick($event)"> <label>first sug </label> </div>
       </div>
       <div class="modal-footer">
