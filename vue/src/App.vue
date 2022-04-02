@@ -5,7 +5,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Weisevote</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top" ><img class="logo-custom" src='../src/assets/img/Logo_Evote.png'> </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -27,15 +27,18 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
             </li>
-            <li>
+            <li v-if="!token">
               <button type="button" class="btn btn-primary custom-btn" data-toggle="modal" data-target="#loginModal">
              login
               </button>
             </li>
-            <li>
+            <li v-if="!token">
               <button type="button" class="btn btn-primary custom-btn" data-toggle="modal" data-target="#signupModal">
              sign up
               </button>
+            </li>
+            <li v-if="token">
+             <a class="nav-link js-scroll-trigger" href="#">{{user}}</a>
             </li>
           </ul>
         </div>
@@ -105,9 +108,9 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/yassine.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="../src/assets/img/yassine.jpg" alt="">
               <h4>Kay Garland</h4>
               <p class="text-muted">Lead Designer</p>
               <ul class="list-inline social-buttons">
@@ -129,9 +132,9 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="../src/assets/img/khemais.jpg" alt="">
               <h4>Larry Parker</h4>
               <p class="text-muted">Lead Marketer</p>
               <ul class="list-inline social-buttons">
@@ -153,30 +156,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
-              <h4>Diana Pertersen</h4>
-              <p class="text-muted">Lead Developer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+      
         </div>
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
@@ -544,9 +524,10 @@
      
      
   <form @submit.prevent="authenticate">
+  <div class="form-group"><p style="color: red"> {{errorlogin}}</p></div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Enter Your Email address</label>
-    <input type="email" class="form-control" v-model="input.email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <label for="exampleInputEmail1">Enter Your User Name</label>
+    <input type="text" class="form-control" v-model="input.username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter UserName">
     
   </div>
   <div class="form-group">
@@ -565,7 +546,7 @@
   </div>
 </div>
 
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="signupModal" v-if="this.showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -575,24 +556,28 @@
         </button>
       </div>
       <div class="modal-body">
-     <form @submit.prevent="authenticate">
+    <form @submit.prevent="signup">
+    <div class="form-group"><p style="color: red"> {{errorsign}}</p></div>
     <div class="form-group">
-    <label for="exampleInputEmail1">enter your email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="exampleInputEmail1">enter your UserName</label>
+    <input type="text" class="form-control" v-model="sign.username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+ 
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" v-model="input.email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <input type="email" class="form-control" v-model="sign.email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" v-model="input.password" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" class="form-control" v-model="sign.password" id="exampleInputPassword1" placeholder="Password">
+  </div>
+   <div class="form-group">
+    <label for="exampleInputPassword1">Role</label>
+    <input type="text" class="form-control" v-model="sign.role" id="exampleInputPassword1" placeholder="Role">
   </div>
      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" >sign up</button>
+        <button type="submit" class="btn btn-primary" >sign up</button>
       </div>
   
 </form>
@@ -607,30 +592,70 @@
   
 </template>
 <script>
-import {login} from './util';
+import {login, signUp} from './util';
     export default {
         data() {
             return {
+              token : localStorage.getItem('token'),
+              user :  localStorage.getItem('user'),
               showModal: true,
                 input: {
-                    email: "",
+                    username: "",
                     password: ""
-                }
+                },
+                sign: {
+                    email: "",
+                    password: "",
+                    username:"",
+                    role:""
+                },
+                errorlogin:'',
+                errorsign:''
             }
         },
         methods: {
             authenticate() {
-            
               console.log(this.$data.input)
+              
               login(this.$data.input)
                     .then((res) => {
-                       // this.$store.commit("loginSuccess", res);
+                       localStorage.setItem("token",res.accessToken);
+                       localStorage.setItem("user",res.username);
                        console.log(res)
-                         this.showModal = false
-                        this.$router.push({path: '/home'});
+                       this.showModal = false
+                         console.log('succcccccccccccess')
+                       // this.$router.push({path: '/home'});
                     })
                     .catch((error) => {
                         console.log(error)
+                        this.errorlogin = error
+                        //this.$store.commit("loginFailed", {error});
+                    });
+            
+             // login()
+             /*   if(this.input.email != "" && this.input.password != ""){
+                    
+                  this.$router.replace({ name: "secure" });
+                  console.log("The email and / or password is incorrect");
+          
+                }else {
+                    console.log("A email and password must be present");
+                }
+            }*/
+        },
+            signup() {
+              console.log(this.$data.sign)
+              signUp({email : this.$data.sign.email,username:this.$data.sign.username,password:this.$data.sign.password,role :[this.$data.sign.role]})
+                    .then((res) => {
+                       // this.$store.commit("loginSuccess", res);
+                          console.log(res)
+                         this.showModal = false
+                         console.log('succcccccccccccess')
+                       // this.$router.push({path: '/home'});
+                    })
+                    .catch((error) => {
+                          console.log(error)
+                          this.errorsign = error
                         //this.$store.commit("loginFailed", {error});
                     });
             
@@ -656,7 +681,9 @@ import {login} from './util';
   text-align: center;
   color: #2c3e50;
 }
-
+.logo-custom{
+width: 40%;
+    border-radius: 50%;}
 body {
   background: black;
 }
