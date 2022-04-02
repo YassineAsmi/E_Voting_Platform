@@ -27,15 +27,18 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
             </li>
-            <li>
+            <li v-if="!localStorage.getItem('accessToken')">
               <button type="button" class="btn btn-primary custom-btn" data-toggle="modal" data-target="#loginModal">
              login
               </button>
             </li>
-            <li>
+            <li v-if="!localStorage.getItem('accessToken')">
               <button type="button" class="btn btn-primary custom-btn" data-toggle="modal" data-target="#signupModal">
              sign up
               </button>
+            </li>
+            <li v-if="localStorage.getItem('accessToken')">
+             <a class="nav-link js-scroll-trigger" href="#">{{localStorage.getItem('userName')}}</a>
             </li>
           </ul>
         </div>
@@ -623,7 +626,7 @@
   </div>
 </div>
 
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="signupModal" v-if="this.showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -691,9 +694,10 @@ import {login, signUp} from './util';
               
               login(this.$data.input)
                     .then((res) => {
-                       // this.$store.commit("loginSuccess", res);
+                       localStorage.setItem("token",res.accessToken);
+                       localStorage.setItem("token",res.username);
                        console.log(res)
-                         this.showModal = false
+                        this.showModal = false
                          console.log('succcccccccccccess')
                        // this.$router.push({path: '/home'});
                     })
