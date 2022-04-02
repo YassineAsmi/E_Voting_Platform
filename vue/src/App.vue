@@ -38,7 +38,7 @@
               </button>
             </li>
             <li v-if="token">
-             <a class="nav-link js-scroll-trigger" href="#">{{localStorage.getItem('userName')}}</a>
+             <a class="nav-link js-scroll-trigger" href="#">{{user}}</a>
             </li>
           </ul>
         </div>
@@ -676,7 +676,7 @@ import {login, signUp} from './util';
         data() {
             return {
               token : localStorage.getItem('token'),
-              user : localStorage.getItem('user'),
+              user :  localStorage.getItem('user'),
               showModal: true,
                 input: {
                     username: "",
