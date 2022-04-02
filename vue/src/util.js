@@ -11,3 +11,15 @@ export function login(credentials) {
             })
     })
 }
+export function signUp(credentials) {
+    return new Promise((res, rej) => {
+        axios.post('http://localhost:5000/api/auth/signup', credentials)
+            .then((response) => {
+               // setAuthorization(response.data.access_token);
+                res(response.data);
+            })
+            .catch(() =>{
+                rej("Wrong email or password");
+            })
+    })
+}
