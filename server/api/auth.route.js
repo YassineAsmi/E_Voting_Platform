@@ -1,6 +1,9 @@
 const { verifySignUp } = require("../middleware");
 const controller = require("../controllers/auth.controller");
+
 module.exports = function(app) {
+  const cors = require('cors');
+
   app.use(function(req, res, next) {
     res.header(
       "Access-Control-Allow-Headers",

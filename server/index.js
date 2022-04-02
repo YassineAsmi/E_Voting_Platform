@@ -6,7 +6,9 @@ const app = express();
 var corsOptions = {
   origin: "http://localhost:5000"
 };
-
+app.use(cors({
+  origin: '*'
+}));
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(express.json());
