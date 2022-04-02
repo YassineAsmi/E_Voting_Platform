@@ -611,7 +611,7 @@
 </div>
 
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" v-if="showModal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -624,24 +624,24 @@
       <div class="modal-body">
      
      
-       <form>
+  <form @submit.prevent="authenticate">
   <div class="form-group">
     <label for="exampleInputEmail1">Enter Your Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" v-model="input.email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
     
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Enter Your Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" class="form-control" v-model="input.password" id="exampleInputPassword1" placeholder="Password">
   </div>
   
-  
+  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" >login</button>
+      </div>
 </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">login</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -656,30 +656,30 @@
         </button>
       </div>
       <div class="modal-body">
-     <form>
-       <div class="form-group">
+     <form @submit.prevent="authenticate">
+    <div class="form-group">
     <label for="exampleInputEmail1">enter your email</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" v-model="input.email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" class="form-control" v-model="input.password" id="exampleInputPassword1" placeholder="Password">
   </div>
-  
+     <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" >sign up</button>
+      </div>
   
 </form>
      
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">sign up</button>
-      </div>
+   
     </div>
   </div>
 </div>
@@ -687,7 +687,48 @@
 
   
 </template>
-
+<script>
+import {login} from './util';
+    export default {
+        data() {
+            return {
+              showModal: true,
+                input: {
+                    email: "",
+                    password: ""
+                }
+            }
+        },
+        methods: {
+            authenticate() {
+            
+              console.log(this.$data.input)
+              login(this.$data.input)
+                    .then((res) => {
+                       // this.$store.commit("loginSuccess", res);
+                       console.log(res)
+                         this.showModal = false
+                        this.$router.push({path: '/home'});
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                        //this.$store.commit("loginFailed", {error});
+                    });
+            
+             // login()
+             /*   if(this.input.email != "" && this.input.password != ""){
+                    
+                  this.$router.replace({ name: "secure" });
+                  console.log("The email and / or password is incorrect");
+          
+                }else {
+                    console.log("A email and password must be present");
+                }
+            }*/
+        }
+    }
+    }
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
