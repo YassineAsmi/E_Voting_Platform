@@ -23,3 +23,16 @@ export function signUp(credentials) {
             })
     })
 }
+export function getRoles() {
+    return new Promise((res, rej) => {
+        axios.get('http://localhost:5000/api/role')
+            .then((response) => {
+               // setAuthorization(response.data.access_token);
+               console.log(response)
+                res(response.data);
+            })
+            .catch(() =>{
+                rej("Wrong email or password");
+            })
+    })
+}

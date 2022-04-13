@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PollView from '../views/pollsView.vue'
+import TeamCompnent from '../components/TeamComponent.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/polls',
     name: 'polls',
     component: PollView
+  },
+  {
+    path: '/team',
+    name: 'teams',
+    component: TeamCompnent
   },
   {
     path: '/about',
