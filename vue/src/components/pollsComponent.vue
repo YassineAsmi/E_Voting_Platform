@@ -12,7 +12,6 @@
   
 </template>
 <script>
-import Pagination from './Pagination.vue'
 import Poll from './PollView.vue'
 export default {
   name: 'pollsComponent',
@@ -20,7 +19,6 @@ export default {
     msg: String
   },
   components:{
-    Pagination,
     Poll,  
   },data: function() {
                 return {
