@@ -2,7 +2,7 @@
 <section id=poll>
 <div class="container">
 <Poll></Poll>
-<Pagination></Pagination>
+
 
 </div>
 

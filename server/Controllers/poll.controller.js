@@ -1,5 +1,5 @@
 const db = require("../models");
-const Poll = db.evoting;
+const Poll = db.poll;
 const Op = db.Sequelize.Op;
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
@@ -33,10 +33,10 @@ exports.create = (req, res) => {
     });
 };
 // Retrieve all Tutorials from the database.
-exports.findAll = (req, res) => {
-  const question = req.query.question;
-  var condition = question ? { question: { [Op.like]: `%${question}%` } } : null;
-  Poll.findAll({ where: condition })
+exports.findAllPoll = (req, res) => {
+  //const question = req.query.question;
+ // var condition = question ? { question: { [Op.like]: `%${question}%` } } : null;
+  Poll.findAll()
     .then(data => {
       res.send(data);
     })
