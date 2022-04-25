@@ -1,15 +1,12 @@
 <template>
   <div class="container">
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="card card-margin">
-            <div class="card-header no-border">
-                <h5 class="card-title">Poll 1</h5>
-            </div>
 <div class="panel panel-primary" v-for="(poll, index) in this.polls" :key="index">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        <span class="glyphicon glyphicon-arrow-right"></span>{{poll.Question}}<a href="http://www.jquery2dotnet.com" target="_blank"><span
+                        <span class="glyphicon glyphicon-arrow-right"></span>{{poll.question}}<a href="http://www.jquery2dotnet.com" target="_blank"><span
                             class="glyphicon glyphicon-new-window"></span></a>
                     </h3>
                 </div>

@@ -21,10 +21,12 @@ exports.create = (req, res) => {
     sug6: req.body.sug6,
   };
   // Save Tutorial in the database
+  console.log("plllllz work"+poll.question);
   Poll.create(poll)
     .then(data => {
       res.send(data);
     })
+    
     .catch(err => {
       res.status(500).send({
         message:
@@ -34,9 +36,9 @@ exports.create = (req, res) => {
 };
 // Retrieve all Tutorials from the database.
 exports.findAllPoll = (req, res) => {
-  //const question = req.query.question;
- // var condition = question ? { question: { [Op.like]: `%${question}%` } } : null;
-  Poll.findAll()
+  const question = req.query.question;
+  var condition = question ? { question: { [Op.like]: `%${question}%` } } : null;
+  Poll.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
