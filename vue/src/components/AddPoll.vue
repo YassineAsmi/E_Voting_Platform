@@ -14,7 +14,25 @@
         <v-row class="text-center">
           <v-col cols="4">
             <CreatePoll @question= "setQuestion" @options = "setOptions"></CreatePoll>
-            <button @click="postQuestion()">Add Poll</button>
+            <v-btn class="float-left"
+  color="danger"
+  elevation="18"
+  raised
+  rounded
+
+  tile
+  x-large
+><router-link to="/polls"><font color="white"><b>Cancel</b> </font> </router-link></v-btn>
+            <v-btn class="float-right"
+  color="green"
+  elevation="18"
+  raised
+  rounded
+ @click="postQuestion()"
+  tile
+  x-large
+><font color="white"><b>Add Poll</b> </font> </v-btn>
+           
           </v-col>
           <v-col cols="4" v-if="options.length>1 && question!== '' && question!== undefined">
             <DisplayPoll :options="options" :question="question" :resetCounter="resetCounter" @resetCounterUpdate="updateResetCounter" @votereport="getVoteReportData"></DisplayPoll>
@@ -24,8 +42,26 @@
           </v-col>
         </v-row>
       </v-container>
+          <v-snackbar
+      v-model="snackbar"
+      color ="green"
+    >
+     <font color="white"><b> {{ text }}</b></font>
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="pink"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
     </v-main>
   </v-app>
+  
 </template>
 
 <script>
@@ -49,6 +85,8 @@ export default {
     optionItems:[],
     reportData:[],
     resetCounter: false,
+    snackbar: false,
+      text: `Poll Added Successfully !!!`,
   }),
   methods: {
     postQuestion () {
@@ -60,7 +98,8 @@ export default {
         const poll =  {"question":this.question , ...this.reformQuestion()}
         console.log(poll)
         this.createPolls(poll)
-       
+        // this.$router.go();
+        this.snackbar =true;
     },
     createPolls(poll){
       addPolls(poll).then(data=>{

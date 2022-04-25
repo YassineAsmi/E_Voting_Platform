@@ -1,8 +1,18 @@
 <template>
   <div class="container">
+    <v-btn class="float-right"
+  color="green"
+  elevation="18"
+  raised
+  rounded
+
+  tile
+  x-large
+><router-link to="/addPoll"><font color="white"><b>ADD</b> </font> </router-link></v-btn>
 <div class="row">
     <div class="col-md-4">
         <div class="card card-margin">
+
 <div class="panel panel-primary" v-for="(poll, index) in this.polls" :key="index">
                 <div class="panel-heading">
                     <h3 class="panel-title">
@@ -62,7 +72,7 @@
             </div>
         </div>
     </div>
- 
+           
 
 </div>
 </template>
@@ -130,6 +140,7 @@ body{
     -webkit-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
     -moz-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
     -ms-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+    
 }
 .card {
     position: relative;

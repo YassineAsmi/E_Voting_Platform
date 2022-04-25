@@ -60,14 +60,14 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="C:\Users\yassi\Documents\E-Voting\vue\src\assets\img\yassine.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="./assets/img/yassine.jpg" alt="">
               <h4>Yassine Asmi</h4>
               <p class="text-muted">Software Engineer</p>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="C:\Users\yassi\Documents\E-Voting\vue\src\assets\img\khemais.jpghemais.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="C:\Users\yassi\Documents\E-Voting\vue\src\assets\img\khemais.jpg" alt="">
               <h4>Khemais Ismail</h4>
               <p class="text-muted">Software Engineer</p>
             </div>
@@ -160,6 +160,6 @@ export default {
   name: 'HomeComponent',
   props: {
     msg: String
-  }
+  },
 }
 </script>

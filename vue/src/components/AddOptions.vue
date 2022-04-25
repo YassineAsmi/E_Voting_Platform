@@ -57,10 +57,10 @@
     </v-col>
     <v-row>
       <v-col col="12" v-if="showMaximumOptionAddedFalg">
-        <span>You can only add 10 options</span>
+        <span>You can only add 5 options</span>
       </v-col>
       <v-col col="12" v-if="!showMaximumOptionAddedFalg">
-        <span>{{optionCount}}/10 Possible Answer</span>
+        <span>{{optionCount}}/5 Possible Answer</span>
       </v-col>
       <v-col col="4">
       <span><v-btn

@@ -153,7 +153,23 @@
       </div>
   
 </form>
-     
+     <v-snackbar
+      v-model="snackbar"
+      color ="green"
+    >
+     <font color="white"><b> {{ text }}</b></font>
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="pink"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
       </div>
    
     </div>
@@ -182,7 +198,9 @@ import {login, signUp} from './util';
                     role:"user"
                 },
                 errorlogin:'',
-                errorsign:''
+                errorsign:'',
+                 snackbar: false,
+                 text: `Account Created Successfully !!!`,
             }
         },
         methods: {
@@ -225,7 +243,7 @@ import {login, signUp} from './util';
                        // this.$store.commit("loginSuccess", res);
                           console.log(res)
                           this.closeModal();
-   
+                          this.snackbar =true;
                          console.log('succcccccccccccess')
                       //  this.$router.push({path: '/polls'});
                     })
