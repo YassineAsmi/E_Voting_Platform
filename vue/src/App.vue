@@ -5,7 +5,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top" >WeisVote </a>
+        <a class="navbar-brand js-scroll-trigger" href="/" >WeisVote </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -19,7 +19,7 @@
             <router-link class="nav-link js-scroll-trigger" :to="{name :'polls'}">Polls</router-link>
             </li>
             <li class="nav-item">
-             <router-link class="nav-link js-scroll-trigger" to="#team">Team</router-link>
+             <router-link class="nav-link js-scroll-trigger" to="/team">Team</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link js-scroll-trigger" to="/About">About</router-link>
@@ -269,4 +269,3 @@ body {
  margin-left: 2%;
 }
 </style>
-
