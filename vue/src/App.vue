@@ -147,12 +147,8 @@
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" v-model="sign.password" id="exampleInputPassword1" placeholder="Password">
   </div>
-   <div class="form-group">
-    <label for="exampleInputPassword1">Role</label>
-    <input type="text" class="form-control" v-model="sign.role" id="exampleInputPassword1" placeholder="Role">
-  </div>
      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="close_signup" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" >sign up</button>
       </div>
   
@@ -183,7 +179,7 @@ import {login, signUp} from './util';
                     email: "",
                     password: "",
                     username:"",
-                    role:""
+                    role:"user"
                 },
                 errorlogin:'',
                 errorsign:''
@@ -198,9 +194,9 @@ import {login, signUp} from './util';
                        localStorage.setItem("token",res.accessToken);
                        localStorage.setItem("user",res.username);
                        console.log(res)
-                       this.showModal = false
+                      // this.showModal = false
                          console.log('succcccccccccccess')
-                       // this.$router.push({path: '/home'});
+                        this.$router.push({path: '/'});
                     })
                     .catch((error) => {
                         console.log(error)
@@ -219,15 +215,19 @@ import {login, signUp} from './util';
                 }
             }*/
         },
+        closeModal() {
+   document.getElementById('close_signup').click();
+},
             signup() {
               console.log(this.$data.sign)
               signUp({email : this.$data.sign.email,username:this.$data.sign.username,password:this.$data.sign.password,role :[this.$data.sign.role]})
                     .then((res) => {
                        // this.$store.commit("loginSuccess", res);
                           console.log(res)
-                         this.showModal = false
+                          this.closeModal();
+   
                          console.log('succcccccccccccess')
-                        this.$router.push({path: '/polls'});
+                      //  this.$router.push({path: '/polls'});
                     })
                     .catch((error) => {
                           console.log(error)

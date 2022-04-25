@@ -13,7 +13,7 @@
       <v-container  class="mt-7">
         <v-row class="text-center">
           <v-col cols="4">
-            <CreatePoll @question="setQuestion" @options = "setOptions"></CreatePoll>
+            <CreatePoll @question= "setQuestion" @options = "setOptions"></CreatePoll>
             <button @click="postQuestion()">Add Poll</button>
           </v-col>
           <v-col cols="4" v-if="options.length>1 && question!== '' && question!== undefined">

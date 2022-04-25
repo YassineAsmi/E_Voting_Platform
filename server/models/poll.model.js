@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
     const Evoting = sequelize.define("poll", {
-      Question: {
+      question: {
         type: Sequelize.STRING
       },
       sug1: {
