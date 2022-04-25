@@ -193,10 +193,10 @@ import {login, signUp} from './util';
                     .then((res) => {
                        localStorage.setItem("token",res.accessToken);
                        localStorage.setItem("user",res.username);
-                       console.log(res)
-                      // this.showModal = false
+                      console.log(res)
+                       // this.showModal = false
                          console.log('succcccccccccccess')
-                        this.$router.push({path: '/'});
+                    this.$router.go()
                     })
                     .catch((error) => {
                         console.log(error)
