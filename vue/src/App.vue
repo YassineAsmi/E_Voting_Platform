@@ -15,7 +15,7 @@
             <li class="nav-item">
              <router-link class="nav-link js-scroll-trigger" to="/">Home</router-link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="token">
             <router-link class="nav-link js-scroll-trigger" :to="{name :'polls'}">Polls</router-link>
             </li>
             <li class="nav-item">
@@ -35,7 +35,24 @@
               </button>
             </li>
             <li v-if="token">
-             <a class="nav-link js-scroll-trigger" href="#">{{user}}</a>
+            <v-chip
+  close-icon="mdi-close-outline"
+  color="yellow"
+  filter
+  link
+> <a class="nav-link js-scroll-trigger" href="#"><font color="white"><b>{{user}}</b> </font></a> </v-chip> 
+            </li>
+            <li v-if="token">
+              
+              <v-btn v-on:click="logout"
+  color="danger"
+  elevation="18"
+  raised
+  rounded
+  tile
+  x-large
+><font color="white"><b>Logout</b> </font></v-btn>
+          
             </li>
           </ul>
         </div>
@@ -43,23 +60,9 @@
     </nav>
 
 <router-view></router-view>
-
-
-    <!-- Services -->
-
-
-
-
-
-    <!-- Footer -->
     <footer>
       <h2>Made By Khemais & Yassine .</h2>
     </footer>
-
-
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -204,6 +207,11 @@ import {login, signUp} from './util';
             }
         },
         methods: {
+          logout(){
+            localStorage.clear();
+            this.$router.push({path: '/'});
+            
+          },
             authenticate() {
               console.log(this.$data.input)
               
@@ -282,6 +290,9 @@ width: 40%;
     border-radius: 50%;}
 body {
   background: black;
+}
+li{
+  margin: 5px;
 }
 .custom-btn{
  margin-left: 2%;
