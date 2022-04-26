@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import PollView from '../views/pollsView.vue'
 import TeamCompnent from '../components/TeamComponent.vue'
 import AddPoll from '../components/AddPoll.vue'
-
+import CreateRole from '../components/CreateRole.vue'
 const routes = [
   {
     path: '/',
@@ -22,12 +22,12 @@ const routes = [
     component: TeamCompnent
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/CreateRole',
+    name: 'CreateRole',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: CreateRole
   },
   {
     path: '/addPoll',

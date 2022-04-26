@@ -1,13 +1,23 @@
 <template>
     <div class="role" >
-        <v-container fluid>
-      <v-row dense>
-          <v-card v-for="(answer, index) in this.role" :key="index"
+        <v-btn 
+  color="success"
+  elevation="18"
+  raised
+  tile
+  x-large
+  v-if="token"
+>
+<router-link to="/CreateRole"><font color="white"><b>Create Role</b> </font> </router-link></v-btn><br><br>
+        <v-row justify="center">
+      <v-col
+         v-for="(answer, index) in this.role" :key="index"
+        cols="auto"
+      >
+          <v-card
     class="mx-auto"
     max-width="344"
   >
-
-
     <v-card-title>
         <v-chip
       class="ma-2"
@@ -31,10 +41,18 @@
       <v-btn
         color="green"
         text
+        v-if="token"
       >
        <b>Join</b> 
       </v-btn>
-
+<v-btn
+        disabled
+        color="error"
+        text
+        v-if="!token"
+      >
+       <b>Please Log in to join a group</b> 
+      </v-btn>
       <v-spacer></v-spacer>
 
 
@@ -42,8 +60,9 @@
 
 
   </v-card>
+   </v-col>
   </v-row>
-    </v-container>
+   
     </div>
 </template>
     <script> 
@@ -54,6 +73,7 @@ import { getRoles } from '../util'
             return {
                 role:null,
                  show: false,
+                 token : localStorage.getItem('token'),
             }
         },
         methods: {

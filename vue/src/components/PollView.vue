@@ -76,10 +76,19 @@
        <b>Vote</b> 
       </v-btn>
  <v-btn
+ v-if="token"
         color="blue"
         text
       >
        <b>View Result</b> 
+      </v-btn>
+      <v-btn
+      disabled
+        color="error"
+        text
+        v-if="!token"
+      >
+       <b>Please Log in to Vote </b> 
       </v-btn>
       <v-spacer></v-spacer>
 
