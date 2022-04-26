@@ -15,7 +15,7 @@
             <li class="nav-item">
              <router-link class="nav-link js-scroll-trigger" to="/">Home</router-link>
             </li>
-            <li class="nav-item" v-if="token">
+            <li class="nav-item" >
             <router-link class="nav-link js-scroll-trigger" :to="{name :'polls'}">Polls</router-link>
             </li>
             <li class="nav-item">
@@ -206,7 +206,6 @@ import {login, signUp} from './util';
         methods: {
           logout(){
             localStorage.clear();
-            this.$router.push({path: '/'});
             this.$router.go();
           },
             authenticate() {

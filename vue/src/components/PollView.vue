@@ -8,7 +8,9 @@
 
   tile
   x-large
-><router-link to="/addPoll"><font color="white"><b>ADD</b> </font> </router-link></v-btn>
+  v-if="token"
+>
+<router-link to="/addPoll"><font color="white"><b>ADD</b> </font> </router-link></v-btn>
     <v-row justify="center">
       <v-col
         v-for="(poll, index) in this.polls" :key="index"
@@ -69,6 +71,7 @@
         x-large
               color="success"
               dark
+              v-if="token"
       >
        <b>Vote</b> 
       </v-btn>
@@ -111,6 +114,8 @@ export default {
         return {
             polls:null,
             radioGroup: 1,
+              token : localStorage.getItem('token'),
+
         }
     },
     methods: {
