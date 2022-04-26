@@ -21,9 +21,6 @@
             <li class="nav-item">
              <router-link class="nav-link js-scroll-trigger" to="/team">Team</router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="nav-link js-scroll-trigger" to="/About">About</router-link>
-            </li>
             <li v-if="!token">
               <button type="button" class="btn btn-primary custom-btn" data-toggle="modal" data-target="#loginModal">
              login
@@ -139,7 +136,7 @@
     <div class="form-group"><p style="color: red"> {{errorsign}}</p></div>
     <div class="form-group">
     <label for="exampleInputEmail1">enter your UserName</label>
-    <input type="text" class="form-control" v-model="sign.username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="text" class="form-control" v-model="sign.username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
  
   </div>
   <div class="form-group">
@@ -210,7 +207,7 @@ import {login, signUp} from './util';
           logout(){
             localStorage.clear();
             this.$router.push({path: '/'});
-            
+            this.$router.go();
           },
             authenticate() {
               console.log(this.$data.input)

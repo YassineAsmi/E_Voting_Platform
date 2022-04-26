@@ -9,69 +9,94 @@
   tile
   x-large
 ><router-link to="/addPoll"><font color="white"><b>ADD</b> </font> </router-link></v-btn>
-<div class="row">
-    <div class="col-md-4">
-        <div class="card card-margin">
+    <v-row justify="center">
+      <v-col
+        v-for="(poll, index) in this.polls" :key="index"
+        cols="auto"
+      >
+          <v-card 
+    class="mx-auto"
+    max-width="344"
+  >
 
-<div class="panel panel-primary" v-for="(poll, index) in this.polls" :key="index">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <span class="glyphicon glyphicon-arrow-right"></span>{{poll.question}}<a href="http://www.jquery2dotnet.com" target="_blank"><span
-                            class="glyphicon glyphicon-new-window"></span></a>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios">
-                                    {{poll.sug1}}
-                                </label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios">
-                                    {{poll.sug2}}
-                                </label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios">
-                                   {{poll.sug3}}
-                                </label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios">
-                                    {{poll.sug4}}
-                                </label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios">
-                                    {{poll.sug5}}
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="panel-footer">
-                    <button type="button" class="btn btn-primary btn-sm">
-                        Vote</button>
-                    <a href="#">View Result</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <v-card-title >
+     
+       {{poll.question}}
+  
+    </v-card-title>
+
+    <v-card-subtitle>
+      
+   <v-radio-group
+      v-model="column"
+      column
+    >  <v-card
+  elevation="2"
+>
+       <v-radio
+        value="radio-1"
+                color="orange"
+                
+              > <template v-slot:label><b>{{poll.sug1}}</b></template></v-radio></v-card><br>
+           <v-card
+  elevation="2"
+><v-radio
+        value="radio-2"
+                color="orange"
+               
+              > <template v-slot:label><b>{{poll.sug2}}</b></template></v-radio></v-card><br>
+                <v-card
+  elevation="2"
+>
+              <v-radio
+        value="radio-3"
+                color="orange"
+              ><template v-slot:label><b> {{poll.sug3}}</b></template></v-radio></v-card><br>
+                <v-card
+  elevation="2"
+>
+              <v-radio
+        value="radio-4"
+                color="orange"
+                
+              ><template v-slot:label><b> {{poll.sug4}}</b></template></v-radio></v-card><br>
+   </v-radio-group> 
+    </v-card-subtitle>
+
+    <v-card-actions>
+      <v-btn
+        x-large
+              color="success"
+              dark
+      >
+       <b>Vote</b> 
+      </v-btn>
+ <v-btn
+        color="blue"
+        text
+      >
+       <b>View Result</b> 
+      </v-btn>
+      <v-spacer></v-spacer>
+
+
+    </v-card-actions>
+
+
+  </v-card>
+  </v-col>
+    </v-row>
+<v-card
+  elevation="2"
+  loading
+  outlined
+  shaped
+  tile
+></v-card>
+
+          
+ 
            
 
 </div>
@@ -84,7 +109,8 @@ export default {
     name: "poll-view",
     data() {
         return {
-            polls:null
+            polls:null,
+            radioGroup: 1,
         }
     },
     methods: {
@@ -169,7 +195,7 @@ body{
     border-radius: calc(8px - 1px) calc(8px - 1px) 0 0;
 }
 
-.widget-49 .widget-49-title-wrapper {
+.wget-49 .widget-49-title-wrapper {
   display: flex;
   align-items: center;
 }

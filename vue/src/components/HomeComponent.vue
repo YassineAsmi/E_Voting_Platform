@@ -60,14 +60,14 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="./assets/img/yassine.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="https://scontent.ftun14-1.fna.fbcdn.net/v/t39.30808-6/270035648_10222373288062286_3767143037086478244_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=JPRvx7uXroIAX-dUjWy&tn=FD8UX3EXC0eyJ2zD&_nc_ht=scontent.ftun14-1.fna&oh=00_AT93jTONXPJQxfLGuR4gjE6A852fJo5jXCmWGZrtKO0qnw&oe=626CC14E" alt="">
               <h4>Yassine Asmi</h4>
               <p class="text-muted">Software Engineer</p>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="C:\Users\yassi\Documents\E-Voting\vue\src\assets\img\khemais.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="https://scontent.ftun14-1.fna.fbcdn.net/v/t1.6435-9/94989122_2767780083271140_4855609769651601408_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=LmIzERxkvDMAX9E5Vfm&tn=FD8UX3EXC0eyJ2zD&_nc_ht=scontent.ftun14-1.fna&oh=00_AT_fEtIwqvYsrtE6yoD53asW1DG5vaWL4LBxjQDBupfF5g&oe=628D6817" alt="">
               <h4>Khemais Ismail</h4>
               <p class="text-muted">Software Engineer</p>
             </div>
