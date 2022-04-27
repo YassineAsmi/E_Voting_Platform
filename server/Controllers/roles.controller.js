@@ -11,8 +11,8 @@ exports.create = (req, res) => {
     }
     // Create a Roll
     const role = {
-        id:req.body.name,
-      name: req.body.name
+      name: req.body.name,
+      description:req.body.name
 
     };
     // Save Tutorial in the database
