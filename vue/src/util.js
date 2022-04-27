@@ -46,6 +46,20 @@ export function getPollsFromApi() {
             })
     })
 }
+export function addRoles(role) {
+    console.log(role)
+    return new Promise((res, rej) => {
+        axios.post('http://localhost:5000/api/role',role)
+            .then((response) => {
+               // setAuthorization(response.data.access_token);
+                console.log(response)
+                res(response.data);
+            })
+            .catch((err) =>{
+                rej(err);
+            })
+    })
+}
 export function addPolls(poll) {
     console.log(poll)
     return new Promise((res, rej) => {

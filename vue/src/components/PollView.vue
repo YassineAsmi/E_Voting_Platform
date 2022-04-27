@@ -25,9 +25,14 @@
     <v-card-title >
      
        {{poll.question}}
-  
+<v-btn
+  v-if="token"
+    >
+      <v-icon x-large  color="error">
+        mdi-alert-circle
+      </v-icon>
+    </v-btn>
     </v-card-title>
-
     <v-card-subtitle>
       
    <v-radio-group

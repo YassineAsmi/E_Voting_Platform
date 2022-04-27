@@ -34,7 +34,7 @@
     </v-card-title>
 
     <v-card-subtitle>
-      Description
+      {{answer.description}}
     </v-card-subtitle>
 
     <v-card-actions>

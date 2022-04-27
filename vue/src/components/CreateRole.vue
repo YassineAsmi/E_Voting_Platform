@@ -1,13 +1,5 @@
 <template>
 <div class="createrole">
-  <br>
-  <br>
-   <br>
-  <br>
-   <br>
-  <br>
-   <br>
-  <br>
 <h1>Create Role</h1>
  <v-form>
     <v-container>
@@ -65,3 +57,8 @@
     }),
   }
 </script>
+<style>
+.createrole{
+    margin-top: 126px;
+}
+</style>

@@ -5,9 +5,9 @@
           <div class="intro-lead-in">Welcome To Our Platform!</div>
           <div class="intro-heading text-uppercase">It's Nice To make a vote</div>
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
-              <button type="button" class="btn btn-primary custom-btn" data-toggle="modal" data-target="#exampleModal">
-             Launch Demo Poll
-              </button>
+              <a href="#team" class="btn btn-primary custom-btn" >
+             About us
+              </a>
         </div>
       </div>
     </header>
@@ -120,7 +120,7 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+           
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -145,10 +145,10 @@
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                  <a id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" href="mailto:EMAILADDRESS">Send Message</a>
                 </div>
               </div>
-            </form>
+            
           </div>
         </div>
       </div>
