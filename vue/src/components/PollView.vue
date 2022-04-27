@@ -31,20 +31,20 @@
     <v-card-subtitle>
       
    <v-radio-group
-      v-model="column"
+      v-model="id"
       column
     >  <v-card
   elevation="2"
 >
        <v-radio
-        value="radio-1"
+        :value="poll.sug1"
                 color="orange"
                 
               > <template v-slot:label><b>{{poll.sug1}}</b></template></v-radio></v-card><br>
            <v-card
   elevation="2"
 ><v-radio
-        value="radio-2"
+        :value="poll.sug2"
                 color="orange"
                
               > <template v-slot:label><b>{{poll.sug2}}</b></template></v-radio></v-card><br>
@@ -52,14 +52,14 @@
   elevation="2"
 >
               <v-radio
-        value="radio-3"
+        :value="poll.sug3"
                 color="orange"
               ><template v-slot:label><b> {{poll.sug3}}</b></template></v-radio></v-card><br>
                 <v-card
   elevation="2"
 >
               <v-radio
-        value="radio-4"
+        :value="poll.sug4"
                 color="orange"
                 
               ><template v-slot:label><b> {{poll.sug4}}</b></template></v-radio></v-card><br>
@@ -72,6 +72,7 @@
               color="success"
               dark
               v-if="token"
+             @click='addVote'
       >
        <b>Vote</b> 
       </v-btn>
@@ -124,6 +125,7 @@ export default {
             polls:null,
             radioGroup: 1,
               token : localStorage.getItem('token'),
+              id:null
 
         }
     },
@@ -135,6 +137,9 @@ export default {
             }).catch((err)=>{
                 console.log(err)
             })
+        },
+        addVote(){
+           console.log(this.id)
         }
     },
     mounted() {

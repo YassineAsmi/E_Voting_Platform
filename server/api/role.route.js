@@ -4,5 +4,6 @@ module.exports = app => {
     // Create a new Tutorial
     router.get("/", roles.findAll);
     router.post("/", roles.create);
+    router.post("/addRole", roles.joinRolesGroup);
     app.use('/api/role', router);
 }
